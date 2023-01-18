@@ -6,7 +6,8 @@
  * --> Attention à bien fermer votre fichier si vous utilisez fopen()
  */
 // TODO Votre code ici.
-
+echo $mytext = "lorem ( 1 seule ligne suffit )";
+file_put_contents('text.txt', $mytext);
 
 /**
  * 3. Créez un tableau contenant au moins 10 chaînes de caractère au choix.
@@ -15,7 +16,14 @@
  * --> Attention: les chaînes de caractères doivent s'ajouter à la suite du contenu déjà existant, pas d'écrasement.
  */
 // TODO Votre code ici
+$myArr = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'heigt', 'nine', 'ten'];
+file_put_contents('text.txt', $myArr("\n"));
 
+$file = fopen('text.txt', 'a+b');
+while(!feof($file)){
+    echo nl2br(fgets($file));
+}
+fclose($file);
 
 /**
  * 5. Trouvez une solution pour afficher à l'aide d'un simple echo l'extension du fichier index.php
@@ -28,7 +36,12 @@
  * 6. Testez si le fichier 'toto' existe, sil n'existe pas, afficher un texte distant que ce fichier n'existe pas !
  */
 // TODO Votre code ici.
-
+if (file_exists('toto.txt')){
+    echo "Il existe";
+}
+else{
+    echo "sa existe pas";
+}
 
 /**
  * Super bonus.
